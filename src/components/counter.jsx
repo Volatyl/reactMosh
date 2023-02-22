@@ -3,8 +3,8 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = { count: 0 };
 
-  handleIncrement() {
-    console.log("Increment Clicked");
+  handleIncrement = () => {
+    this.setState( {count: this.state.count + 1} );
   }
 
   render() {
@@ -12,7 +12,7 @@ class Counter extends Component {
       <div style={{ marginTop: 10 }}>
         <span className={this.getBadgeClasses()}>{this.formatCounter()}</span>
         <button
-          onClick={this.handleIncrementgit }
+          onClick={this.handleIncrement }
           className="btn btn-primary btn-sm"
         >
           Increment
