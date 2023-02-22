@@ -1,18 +1,35 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = { count: 1, tags: [] };
+  state = { count: 0 };
 
-  renderTags() {
-    if (this.state.tags.length === 0) return <p>There are no tags!</p>;
-    return this.state.tags.map((tag) => <ul><li key={tag}>{tag}</li></ul>);
+  handleIncrement() {
+    console.log("Increment Clicked");
   }
+
   render() {
     return (
       <div style={{ marginTop: 10 }}>
-        {this.renderTags()}
+        <span className={this.getBadgeClasses()}>{this.formatCounter()}</span>
+        <button
+          onClick={this.handleIncrementgit }
+          className="btn btn-primary btn-sm"
+        >
+          Increment
+        </button>
       </div>
     );
+  }
+
+  getBadgeClasses() {
+    let classes = "badge m-2 text-bg-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
+  }
+
+  formatCounter() {
+    const { count } = this.state;
+    return count === 0 ? "Zero" : count;
   }
 }
 
