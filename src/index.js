@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+//import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //import "bootstrap/dist/css/bootstrap.css";
@@ -28,7 +28,7 @@ import NoPage from "./pages/NoPage";
   const root = ReactDOM.createRoot(document.getElementById('root'));
   root.render(<App />); */
 
-function App() {
+/* function App() {
   const [count, setCount] = useState(0);
 
   const increment = () => {
@@ -43,11 +43,37 @@ function App() {
     <>
       <div>
         Count: {count}
+        <p> </p>
         <button onClick={increment}>+</button>
+        <br></br>
         <button onClick={decrement}>-</button>
       </div>
     </>
   );
+} */
+
+function FavoriteColor() {
+  const [color, setColor] = useState("red");
+
+  return (
+    <>
+      <h1 style={{ color: color }}>My favorite color is {color}!</h1>
+      <button type="button" onClick={() => setColor("blue")}>
+        Blue
+      </button>
+      <button type="button" onClick={() => setColor("red")}>
+        Red
+      </button>
+      <button type="button" onClick={() => setColor("hotPink")}>
+        Pink
+      </button>
+      <button type="button" onClick={() => setColor("green")}>
+        Green
+      </button>
+    </>
+  );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(<FavoriteColor />);
+
+// adding this to see if there will be changes
